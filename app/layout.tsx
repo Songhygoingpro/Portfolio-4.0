@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Sidebar_scrollIncidator from "../app/components/Sidebar_scrollIncidator/Sidebar_scrollIncidator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+<Header />
+        <main className="flex gap-5 mx-5 pb-5"   style={{ height: "calc(100vh - 120px)" }}>
+          <Sidebar_scrollIncidator />
+        {children}</main>
       </body>
     </html>
   );
